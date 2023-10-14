@@ -20,9 +20,6 @@ app.use(
     })
 );
 
-let todosPrinc = [];
-let todosWork = [];
-
 app.get('/', (req, res) => {
     if (!req.session.todosPrinc) {
         req.session.todosPrinc = [];
@@ -42,7 +39,7 @@ app.post('/create', (req, res) => {
     if (!req.session.todosPrinc) {
         req.session.todosPrinc = [];
     }
-    todosPrinc.push(todoPrinc);
+    req.session.todosPrinc.push(todoPrinc);
     res.redirect('/');
 });
 
@@ -51,7 +48,7 @@ app.post('/work/create', (req, res) => {
     if (!req.session.todosWork) {
         req.session.todosWork = [];
     }
-    todosWork.push(todoWork);
+    req.session.todosWork.push(todoWork);
     res.redirect('/work');
 });
 
