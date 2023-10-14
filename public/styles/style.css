@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-cyan: hsl(179, 62%, 43%);
+
+    --ff: 'Libre Franklin', sans-serif;
+}
+
+.container {
+    width: min(1300px, 90%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 2px solid hsla(179, 62%, 43%, 0.3);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title {
+    font-family: var(--ff);
+    font-weight: 500;
+}
+
+.fa-check, .fa-house, .fa-briefcase {
+    color: var(--primary-cyan);
+}
+
+.fa-check {
+    font-size: 2rem;
+}
+
+.fa-house, .fa-briefcase, .fa-plus, .fa-trash {
+    margin-left: 10px;
+}
+
+.nav-links-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    font-family: var(--ff);
+    color: black;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 20px;
+    transition: all .3s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: hsla(179, 62%, 43%, 0.2);
+}
+
+.body-title {
+    font-family: var(--ff);
+    font-weight: 400;
+    text-align: center;
+    margin: 2rem 0 3rem 0;
+}
+
+.todo-container {
+    width: min(800px, 100%);
+    margin: 0 auto;
+}
+
+.todo-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.todo-input {
+    width: 100%;
+    padding: .625rem 1.25rem;
+    border: none;
+    border-bottom: 2px solid hsla(179, 62%, 43%, 0.3);
+    font-family: var(--ff);
+    font-size: .75rem;
+    transition: all .3s ease-in-out;
+}
+
+.todo-input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary-cyan);
+}
+
+.todo-button {
+    width: 100px;
+    padding: .625rem 0;
+    border: none;
+    background-color: var(--primary-cyan);
+    font-family: var(--ff);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 0 hsl(179, 55%, 42%);
+    transition: all .3s ease-in-out;
+}
+
+.todo-button:hover {
+    background-color: hsl(179, 62%, 53%);
+}
+
+.todo-list {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.todo {
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 1rem rgba(0, 0, 0, 0.2);
+    font-family: var(--ff);
+    border-radius: 10px;
+}
+
+.todo:nth-child(1) {
+    animation: fadeScaleIn .5s ease-in-out forwards;
+}
+
+.no-todo-text {
+    font-family: var(--ff);
+    font-size: .75rem;
+    font-weight: 500;
+    color: grey;
+    text-align: center;
+}
+
+.delete-form {
+    width: fit-content;
+    margin: 3rem auto;
+}
+
+.delete-button {
+    padding: .625rem 1rem;
+    border: none;
+    background-color: rgb(255, 80, 80);
+    font-family: var(--ff);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 5px 0 rgb(210, 65, 65);
+}
+
+.delete-button:hover {
+    background-color: rgb(255, 110, 110);
+}
+
+.footer {
+    border-top: 2px solid hsla(179, 62%, 43%, 0.3);
+    padding: 1.5rem 1rem;
+}
+
+.footer-text {
+    font-family: var(--ff);
+    font-weight: 300;
+    font-size: .875rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@keyframes fadeScaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

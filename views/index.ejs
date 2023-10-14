@@ -1,0 +1,31 @@
+<main class="container">
+
+    <%- include("partials/header.ejs") %>
+
+    <section class="body-content">
+        <h1 class="body-title">Principal <i class="fa-solid fa-house"></i></h1>
+        <div class="todo-container">
+            <form action="/create" method="POST" class="todo-form">
+                <input type="text" name="todoPrinc" id="todoPrinc" placeholder="Write here..." class="todo-input">
+                <button type="submit" class="todo-button">ADD <i class="fa-solid fa-plus"></i></button>
+            </form>
+            <div class="todo-list">
+                <% if (todosPrinc && todosPrinc.length > 0) { %>
+                    <% todosPrinc.forEach(todo_item => { %>
+                        <div class="todo">
+                            <p class="todo-text"><%= todo_item %></p>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="no-todo-text">No todos yet!</p>
+                <% } %>
+            </div>
+            <form action="/delete-all" method="GET" class="delete-form">
+                <button type="submit" class="delete-button">DELETE ALL <i class="fa-solid fa-trash"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+
+</main>

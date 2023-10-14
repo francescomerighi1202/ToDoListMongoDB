@@ -1,0 +1,31 @@
+<main class="container">
+
+    <%- include("partials/header.ejs") %>
+
+    <section class="body-content">
+        <h1 class="body-title">Work <i class="fa-solid fa-briefcase"></i></h1>
+        <div class="todo-container">
+            <form action="/work/create" method="POST" class="todo-form">
+                <input type="text" name="todoWork" id="todoWork" placeholder="Write here..." class="todo-input">
+                <button type="submit" class="todo-button">ADD <i class="fa-solid fa-plus"></i></button>
+            </form>
+            <div class="todo-list">
+                <% if (todosWork && todosWork.length > 0) { %>
+                    <% todosWork.forEach(todo_item => { %>
+                        <div class="todo">
+                            <p class="todo-text"><%= todo_item %></p>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="no-todo-text">No todos yet!</p>
+                <% } %>
+            </div>
+            <form action="/work/delete-all" method="GET" class="delete-form">
+                <button type="submit" class="delete-button">DELETE ALL <i class="fa-solid fa-trash"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+
+</main>
