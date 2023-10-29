@@ -13,12 +13,12 @@
         </div>
 
         <div class="select-type">
-            <a href="/home" class="select-link">Personal</a>
-            <a href="/work" class="select-link active">Work</a>
+            <a href="/home" class="select-link active">Personal</a>
+            <a href="/work" class="select-link">Work</a>
         </div>
 
         <div class="create-todo">
-            <form action="/work/create" method="post" class="create-todo-form">
+            <form action="/home/create" method="post" class="create-todo-form">
                 <input type="text" name="todo" id="todo" placeholder="Create a new todo..." required>
                 <button class="create-todo-button" type="submit">Add</button>
                 <em><p class="error-input-text todo-text">Insert something.</p></em>
@@ -30,7 +30,7 @@
                 <% todos.forEach((todo) => { %>
                     <div class="todo-complete">
                         <p class="todo"><%= todo.text %></p>
-                        <form action="/work/delete" method="post">
+                        <form action="/home/delete" method="post">
                             <input type="hidden" name="id" value="<%= todo._id %>">
                             <button class="delete-todo" type="submit"><i class="fa-solid fa-check"></i></button>
                         </form>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="complete-all">
-            <form action="/work/deleteAll" method="post" class="complete-all-form">
+            <form action="/home/deleteAll" method="post" class="complete-all-form">
                 <button class="complete-all-button" type="submit">Complete All</button>
             </form>
         </div>
@@ -71,7 +71,7 @@
             errorText.style.display = 'none';
         });
 
-        // Logout dropdown
+        // Click on profile
         document.addEventListener('click', (e) => {
             if (!profile.contains(e.target) && !logout.contains(e.target)) {
                 logout.classList.remove('visible');
