@@ -8,7 +8,7 @@ import LocalStrategy from 'passport-local';
 
 const app = express();
 const port = process.env.PORT || 3000;
-const URI = process.env.MONGODB_URI || 'mongodb+srv://emmeelite:admin69@clustertest.jfiko18.mongodb.net/todolistDB?retryWrites=true&w=majority';
+const URI = process.env.MONGODB_URI || 'mongodb+srv://<username>:<password>@clustertest.jfiko18.mongodb.net/todolistDB?retryWrites=true&w=majority';
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
