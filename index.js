@@ -293,7 +293,7 @@ app.get('/logout', (req, res) => {
 });
 
 // Listen to port
-app.listen(port, '192.168.1.33', () => {
+app.listen(port, () => {
     console.log(`Example app listening at port: ${port}`);
 });
 
