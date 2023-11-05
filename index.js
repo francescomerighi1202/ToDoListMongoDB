@@ -5,17 +5,22 @@ import mongoose, { mongo } from 'mongoose';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
+import dotenv from 'dotenv';
 
+// Load environment variables
+dotenv.config();
+
+// Initialize express
 const app = express();
 const port = process.env.PORT || 3000;
-const URI = process.env.MONGODB_URI || 'mongodb+srv://emmeelite:Kby8JBL5fm8rdwCy@clustertest.jfiko18.mongodb.net/todolistDB?retryWrites=true&w=majority';
+const URI = process.env.MONGODB_URI || `mongodb+srv://emmeelite:${process.env.PW_DB}@clustertest.jfiko18.mongodb.net/todolistDB?retryWrites=true&w=majority`;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(flash());
 
 app.use(session({
-    secret: 'casual-secret-key-123456',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
